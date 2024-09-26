@@ -80,8 +80,10 @@ tipeDriver.addEventListener("change",(e)=>{
     submitBtn.classList.remove("disabled");
   }
 })
+
 //render
 submitBtn.addEventListener("click", () => {
+  let isEmpty=true;
   output.innerHTML = "";
   //render ketika jumlah penumpang diisi
   if (jumlahPenumpang.value) {
@@ -91,8 +93,13 @@ submitBtn.addEventListener("click", () => {
       const isAvailable=tipeDriver.value == "1";
       if (d1 == d2 && car.capacity >= jumlahPenumpang.value && car.available == isAvailable) {
         renderData(car);
+        isEmpty=false;
+        console.log(1);
       }
     });
+    if (isEmpty){
+      output.innerHTML=`<p class="col-3 text-center">Mobil belum tersedia.</p>`;
+    }
     return;
   }
   //render ketika jumlah penumpang tidak diisi
@@ -102,6 +109,11 @@ submitBtn.addEventListener("click", () => {
     const isAvailable=tipeDriver.value == "1";
     if (d1 == d2 && car.available == isAvailable) {
       renderData(car);
+      isEmpty=false;
+      console.log(2);
     }
   });
+  if (isEmpty){
+    output.innerHTML=`<p class="col-3 text-center">Mobil belum tersedia.</p>`;
+  }
 });
