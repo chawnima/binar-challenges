@@ -18,25 +18,25 @@ const renderData = (data) => {
           <p class="card-text">${data.description}</p>
           <div class="container row gap-2 align-items-center justify-content-center mb-2">
             <div class="col-3">
-              <img class="img-fluid" src="../assets/available-calendar-date-svgrepo-com.svg">
+              <img class="img-fluid" src="./assets/available-calendar-date-svgrepo-com.svg">
             </div>
             <p class="col-8 m-0">Tersedia ${new Date(data.availableAt).toLocaleDateString()}</p>
           </div>
           <div class="container row gap-2 align-items-center justify-content-center mb-2">
             <div class="col-3">
-              <img class="img-fluid" src="../assets/group-svgrepo-com.svg">
+              <img class="img-fluid" src="./assets/group-svgrepo-com.svg">
             </div>
             <p class="col-8 m-0">${data.capacity} orang</p>
           </div>
           <div class="container row gap-2 align-items-center justify-content-center mb-2">
             <div class="col-3">
-              <img class="img-fluid" src="../assets/setting-svgrepo-com.svg">
+              <img class="img-fluid" src="./assets/setting-svgrepo-com.svg">
             </div>
             <p class="col-8 m-0">${data.transmission}</p>
           </div>
           <div class="container row gap-2 align-items-center justify-content-center mb-2">
             <div class="col-3">
-              <img class="img-fluid" src="../assets/date-svgrepo-com.svg">
+              <img class="img-fluid" src="./assets/date-svgrepo-com.svg">
             </div>
             <p class="col-8 m-0">Tahun ${data.year}</p>
           </div>
@@ -59,7 +59,7 @@ tanggal.addEventListener("change", (e) => {
 
 //render
 submitBtn.addEventListener("click", async () => {
-  const fetchData = await fetch("../data/cars.json");
+  const fetchData = await fetch("/24001182-km7-fer-bcr-ch2/data/cars.json");
   const response = await fetchData.json();
   //random date
   const data = response.map((each) => {
