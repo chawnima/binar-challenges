@@ -59,7 +59,7 @@ tanggal.addEventListener("change", (e) => {
 
 //render
 submitBtn.addEventListener("click", async () => {
-  const fetchData = await fetch("/24001182-km7-fer-bcr-ch2/data/cars.json");
+  const fetchData = await fetch("./data/cars.json");
   const response = await fetchData.json();
   //random date
   const data = response.map((each) => {
