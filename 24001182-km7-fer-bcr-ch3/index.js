@@ -43,6 +43,9 @@ app.get("/cars/:id", (req, res, next) => {
   }
 
   const dataById = carsData.find((data) => req.params.id == data.id);
+  if (!dataById) {
+    throw new BadRequestError("id not found");
+  };
   response(res,200,dataById);
 });
 
