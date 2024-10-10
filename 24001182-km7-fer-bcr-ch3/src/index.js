@@ -1,11 +1,8 @@
 require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
-const router = require("./src/routes");
-const {
-  errorHandler,
-  notFoundURLHandler,
-} = require("./src/middlewares/errors");
+const router = require("./routes");
+const { errorHandler, notFoundURLHandler } = require("./middlewares/errors");
 const fileUpload = require("express-fileupload");
 
 const app = express();

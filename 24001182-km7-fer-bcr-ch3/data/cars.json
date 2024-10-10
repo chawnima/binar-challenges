@@ -736,35 +736,5 @@
       "Laminated side window glass",
       "Silver accent IP trim finisher -inc: silver shifter finisher"
     ]
-  },
-  {
-    "id": "32e7e56f-1a00-455f-bf4b-dbd2c8c4daaf",
-    "plate": "YNT-12-KTS123",
-    "manufacture": "Ford",
-    "model": "F150",
-    "rentPerDay": 200000,
-    "capacity": 2,
-    "description": " Brake assist. Leather-wrapped shift knob. Glove box lamp. Air conditioning w/in-cabin microfilter.",
-    "availableAt": "2222",
-    "transmission": "\"Automatic\"",
-    "available": true,
-    "type": "\"Sedan\"",
-    "year": 2022,
-    "options": [
-      "Cruise Control",
-      "Tinted Glass",
-      "Tinted Glass",
-      "Tinted Glass",
-      "AM/FM Stereo"
-    ],
-    "specs": [
-      "Brake assist",
-      "Leather-wrapped shift knob",
-      "Glove box lamp",
-      "Air conditioning w/in-cabin microfilter",
-      "Body color folding remote-controlled pwr mirrors",
-      "Dual-stage front airbags w/occupant classification system"
-    ],
-    "profilePicture": "https://ik.imagekit.io/jawir/icon_24hrs_vD92rsBvu.png"
   }
 ]

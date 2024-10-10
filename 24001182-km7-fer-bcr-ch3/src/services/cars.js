@@ -11,14 +11,14 @@ exports.getCarsById = (id) => {
 
 exports.addCars = async (data, files) => {
   if (files) {
-    data.profilePicture = await imageUpload(files);
+    data.image = await imageUpload(files);
   }
   return carsRepository.addCars(data);
 };
 
 exports.updateCars = async (id, data, files) => {
   if (files) {
-    data.profilePicture = await imageUpload(files);
+    data.image = await imageUpload(files);
   }
   return carsRepository.updateCars(id, data);
 };

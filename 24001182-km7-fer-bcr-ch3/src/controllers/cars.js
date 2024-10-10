@@ -19,15 +19,15 @@ exports.getCarsById = (req, res, next) => {
 };
 
 exports.addCars = async (req, res, next) => {
-  const data = await carsService.addCars(req.body, req.files?.profilePicture);
+  const data = await carsService.addCars(req.parsedBody, req.files?.image);
   successResponse(res, data);
 };
 
 exports.updateCars = async (req, res, next) => {
   const data = await carsService.updateCars(
     req.params.id,
-    req.body,
-    req.files?.profilePicture
+    req.parsedBody,
+    req.files?.image
   );
   if (!data) {
     throw new NotFoundError(`Cars id not found`);

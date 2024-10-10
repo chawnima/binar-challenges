@@ -13,12 +13,12 @@ const validateBody = z.object({
   available: z.boolean(),
   type: z.string(),
   year: z.number(),
-  options: z.array(z.string()),
-  specs: z.array(z.string()),
+  options: z.union([z.string(), z.array(z.string())]),
+  specs: z.union([z.string(), z.array(z.string())]),
 });
 const validatePicture = z
   .object({
-    profilePicture: z
+    image: z
       .object({
         data: z.any(),
         name: z.string(),
@@ -38,22 +38,14 @@ exports.validateGetParams = (req, res, next) => {
 };
 
 exports.validatePostCars = (req, res, next) => {
-  const parsedBody = {
+  req.parsedBody = {
     ...req.body,
     available: req.body.available === "true",
     rentPerDay: Number(req.body.rentPerDay),
     capacity: Number(req.body.capacity),
     year: Number(req.body.year),
-    options:
-      typeof req.body.options === "string"
-        ? JSON.parse(req.body.options)
-        : req.body.options,
-    specs:
-      typeof req.body.specs === "string"
-        ? JSON.parse(req.body.specs)
-        : req.body.specs,
   };
-  const resultValidateBody = validateBody.safeParse(parsedBody);
+  const resultValidateBody = validateBody.safeParse(req.parsedBody);
   if (!resultValidateBody.success) {
     throw new BadRequestError(resultValidateBody.error.errors);
   }
@@ -65,27 +57,19 @@ exports.validatePostCars = (req, res, next) => {
 };
 
 exports.validatePutCars = (req, res, next) => {
-  const parsedBody = {
+  req.parsedBody = {
     ...req.body,
     available: req.body.available === "true",
     rentPerDay: Number(req.body.rentPerDay),
     capacity: Number(req.body.capacity),
     year: Number(req.body.year),
-    options:
-      typeof req.body.options === "string"
-        ? JSON.parse(req.body.options)
-        : req.body.options,
-    specs:
-      typeof req.body.specs === "string"
-        ? JSON.parse(req.body.specs)
-        : req.body.specs,
   };
 
   const resultValidateParams = validateParams.safeParse(req.params.id);
   if (!resultValidateParams.success) {
     throw new BadRequestError(resultValidateParams.error.errors);
   }
-  const resultValidateBody = validateBody.safeParse(parsedBody);
+  const resultValidateBody = validateBody.safeParse(req.parsedBody);
   if (!resultValidateBody.success) {
     throw new BadRequestError(resultValidateBody.error.errors);
   }

@@ -1,6 +1,7 @@
-const cars = require("../../cars.json");
+const cars = require("../../data/cars.json");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
+const dataPath = "./data/cars.json";
 
 exports.getCars = () => {
   if (!cars) {
@@ -21,18 +22,9 @@ exports.addCars = (data) => {
   const newCars = {
     id: uuidv4(),
     ...data,
-    available: data.available === "true",
-    rentPerDay: Number(data.rentPerDay),
-    capacity: Number(data.capacity),
-    year: Number(data.year),
-    options:
-      typeof data.options === "string"
-        ? JSON.parse(data.options)
-        : data.options,
-    specs: typeof data.specs === "string" ? JSON.parse(data.specs) : data.specs,
   };
   cars.push(newCars);
-  fs.writeFileSync("./cars.json", JSON.stringify(cars, null, 2), "utf-8");
+  fs.writeFileSync(dataPath, JSON.stringify(cars, null, 2), "utf-8");
   return newCars;
 };
 
@@ -44,18 +36,10 @@ exports.updateCars = (id, data) => {
   const newCars = {
     id: id,
     ...data,
-    available: data.available === "true",
-    rentPerDay: Number(data.rentPerDay),
-    capacity: Number(data.capacity),
-    year: Number(data.year),
-    options:
-      typeof data.options === "string"
-        ? JSON.parse(data.options)
-        : data.options,
-    specs: typeof data.specs === "string" ? JSON.parse(data.specs) : data.specs,
+    image: data.image || cars[carsIndex].image,
   };
   cars[carsIndex] = newCars;
-  fs.writeFileSync("./cars.json", JSON.stringify(cars, null, 2), "utf-8");
+  fs.writeFileSync(dataPath, JSON.stringify(cars, null, 2), "utf-8");
   return newCars;
 };
 
@@ -66,6 +50,6 @@ exports.deleteCars = (id) => {
     return null;
   }
   cars.splice(carsIndex, 1);
-  fs.writeFileSync("./cars.json", JSON.stringify(cars, null, 2), "utf-8");
+  fs.writeFileSync(dataPath, JSON.stringify(cars, null, 2), "utf-8");
   return deletedCars;
 };
