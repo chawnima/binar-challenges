@@ -13,7 +13,7 @@ exports.getCars = (req, res, next) => {
 exports.getCarsById = (req, res, next) => {
   const data = carsService.getCarsById(req.params.id);
   if (!data) {
-    throw new NotFoundError(`Students not found`);
+    throw new NotFoundError(`Cars not found`);
   }
   successResponse(res, data);
 };
@@ -30,7 +30,7 @@ exports.updateCars = async (req, res, next) => {
     req.files?.profilePicture
   );
   if (!data) {
-    throw new NotFoundError(`Students id not found`);
+    throw new NotFoundError(`Cars id not found`);
   }
   successResponse(res, data);
 };
@@ -38,7 +38,7 @@ exports.updateCars = async (req, res, next) => {
 exports.deleteCars = (req, res, next) => {
   const data = carsService.deleteCars(req.params.id);
   if (!data) {
-    throw new NotFoundError(`Students id not found`);
+    throw new NotFoundError(`Cars id not found`);
   }
   successResponse(res, data);
 };
