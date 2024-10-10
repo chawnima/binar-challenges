@@ -1,25 +1,28 @@
-const express = require("express");
-const { z } = require("zod");
-const carsData = require("./cars.json");
-const router = require("./src/routes");
-const { errorHandler } = require("./src/middlewares/errors");
+require("dotenv").config();
 require("express-async-errors");
+const express = require("express");
+const router = require("./src/routes");
+const {
+  errorHandler,
+  notFoundURLHandler,
+} = require("./src/middlewares/errors");
+const fileUpload = require("express-fileupload");
 
 const app = express();
 const port = 3000;
-
 app.use(express.json());
 
-//app
+app.use(fileUpload({ limits: { fileSize: 50 * 1024 * 1024 } }));
+
 app.get("/", (req, res) => {
   res.status(200).json({ message: "ping successfully" });
 });
 
-//get all cars data
 app.use("/", router);
 
-//error handler
+app.use("*", notFoundURLHandler);
 app.use(errorHandler);
+
 //port listener
 app.listen(port, () => {
   console.log(`app listening into port ${port}`);

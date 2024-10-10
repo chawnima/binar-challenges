@@ -18,13 +18,17 @@ exports.getCarsById = (req, res, next) => {
   successResponse(res, data);
 };
 
-exports.addCars = (req, res, next) => {
-  const data = carsService.addCars(req.body);
+exports.addCars = async (req, res, next) => {
+  const data = await carsService.addCars(req.body, req.files?.profilePicture);
   successResponse(res, data);
 };
 
-exports.updateCars = (req, res, next) => {
-  const data = carsService.updateCars(req.params.id, req.body);
+exports.updateCars = async (req, res, next) => {
+  const data = await carsService.updateCars(
+    req.params.id,
+    req.body,
+    req.files?.profilePicture
+  );
   if (!data) {
     throw new NotFoundError(`Students id not found`);
   }

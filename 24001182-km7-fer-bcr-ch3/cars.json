@@ -739,34 +739,32 @@
   },
   {
     "id": "32e7e56f-1a00-455f-bf4b-dbd2c8c4daaf",
-    "plate": "NHI-3883",
-    "manufacture": "Nissan",
-    "model": "Pathfiner",
-    "image": "./images/car24.min.jpg",
-    "rentPerDay": 600000,
-    "capacity": 6,
-    "description": " 200mm front axle. Roof mounted antenna. Cargo compartment cover. Rear bench seat -inc: (3) adjustable headrests.",
-    "availableAt": "2022-03-23T15:49:05.563Z",
-    "transmission": "Automatic",
-    "available": false,
-    "type": "Sedan",
+    "plate": "YNT-12-KTS123",
+    "manufacture": "Ford",
+    "model": "F150",
+    "rentPerDay": 200000,
+    "capacity": 2,
+    "description": " Brake assist. Leather-wrapped shift knob. Glove box lamp. Air conditioning w/in-cabin microfilter.",
+    "availableAt": "2222",
+    "transmission": "\"Automatic\"",
+    "available": true,
+    "type": "\"Sedan\"",
     "year": 2022,
     "options": [
-      "Moonroof/Sunroof",
-      "Power Seats",
-      "CD (Single Disc)",
-      "Airbag: Passenger",
-      "Alarm",
-      "Power Seats",
-      "Cruise Control"
+      "Cruise Control",
+      "Tinted Glass",
+      "Tinted Glass",
+      "Tinted Glass",
+      "AM/FM Stereo"
     ],
     "specs": [
-      "200mm front axle",
-      "Roof mounted antenna",
-      "Cargo compartment cover",
-      "Rear bench seat -inc: (3) adjustable headrests",
-      "Front/rear aluminum multi-link double joint suspension w/coil springs",
-      "Reclining front bucket seats -inc: active head restraints, double-thickness foam in front seats"
-    ]
+      "Brake assist",
+      "Leather-wrapped shift knob",
+      "Glove box lamp",
+      "Air conditioning w/in-cabin microfilter",
+      "Body color folding remote-controlled pwr mirrors",
+      "Dual-stage front airbags w/occupant classification system"
+    ],
+    "profilePicture": "https://ik.imagekit.io/jawir/icon_24hrs_vD92rsBvu.png"
   }
 ]

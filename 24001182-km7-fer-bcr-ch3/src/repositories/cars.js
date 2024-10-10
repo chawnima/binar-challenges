@@ -21,6 +21,15 @@ exports.addCars = (data) => {
   const newCars = {
     id: uuidv4(),
     ...data,
+    available: data.available === "true",
+    rentPerDay: Number(data.rentPerDay),
+    capacity: Number(data.capacity),
+    year: Number(data.year),
+    options:
+      typeof data.options === "string"
+        ? JSON.parse(data.options)
+        : data.options,
+    specs: typeof data.specs === "string" ? JSON.parse(data.specs) : data.specs,
   };
   cars.push(newCars);
   fs.writeFileSync("./cars.json", JSON.stringify(cars, null, 2), "utf-8");
@@ -32,7 +41,19 @@ exports.updateCars = (id, data) => {
   if (carsIndex == -1) {
     return null;
   }
-  const newCars = { id: id, ...data };
+  const newCars = {
+    id: id,
+    ...data,
+    available: data.available === "true",
+    rentPerDay: Number(data.rentPerDay),
+    capacity: Number(data.capacity),
+    year: Number(data.year),
+    options:
+      typeof data.options === "string"
+        ? JSON.parse(data.options)
+        : data.options,
+    specs: typeof data.specs === "string" ? JSON.parse(data.specs) : data.specs,
+  };
   cars[carsIndex] = newCars;
   fs.writeFileSync("./cars.json", JSON.stringify(cars, null, 2), "utf-8");
   return newCars;

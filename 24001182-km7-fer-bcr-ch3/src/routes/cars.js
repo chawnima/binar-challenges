@@ -14,10 +14,12 @@ const {
 
 const router = express.Router();
 
-router.get("/", getCars);
-router.get("/:id", validateGetParams, getCarsById);
-router.post("/", validatePostCars, addCars);
-router.put("/:id", validatePutCars, updateCars);
-router.delete("/:id", validateGetParams, deleteCars);
+router.route("/").get(getCars).post(validatePostCars, addCars);
+
+router
+  .route("/:id")
+  .get(validateGetParams, getCarsById)
+  .put(validatePutCars, updateCars)
+  .delete(validateGetParams, deleteCars);
 
 module.exports = router;
