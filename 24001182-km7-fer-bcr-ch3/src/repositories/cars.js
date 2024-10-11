@@ -35,8 +35,8 @@ exports.updateCars = (id, data) => {
   }
   const newCars = {
     id: id,
-    ...data,
-    image: data.image || cars[carsIndex].image,
+    ...cars[carsIndex],
+    ...data
   };
   cars[carsIndex] = newCars;
   fs.writeFileSync(dataPath, JSON.stringify(cars, null, 2), "utf-8");
