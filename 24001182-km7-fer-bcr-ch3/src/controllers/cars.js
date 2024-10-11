@@ -3,8 +3,8 @@ const { successResponse } = require("../utils/response");
 const { NotFoundError } = require("../utils/request");
 
 exports.getCars = (req, res, next) => {
-  const data = carsService.getCars();
-  if (!data) {
+  const data = carsService.getCars(req);
+  if (!data.length) {
     throw new NotFoundError(`Cars data not found`);
   }
   successResponse(res, data);

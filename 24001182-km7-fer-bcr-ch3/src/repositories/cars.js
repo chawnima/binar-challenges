@@ -10,6 +10,25 @@ exports.getCars = () => {
   return cars;
 };
 
+exports.getCarsByQuery=(plate,manufacture)=>{
+  const queryPlate = plate?.toLocaleLowerCase();
+  const queryManufacture=manufacture?.toLocaleLowerCase();
+  const searchedCars = cars.filter(car=>{
+    const plateMatch = queryPlate
+      ? car.plate.toLocaleLowerCase().includes(queryPlate)
+      : true;
+    const manufactureMatch = queryManufacture
+      ? car.manufacture.toLocaleLowerCase().includes(queryManufacture)
+      : true;
+
+    return plateMatch && manufactureMatch;
+  })
+  if(!searchedCars){
+    return null;
+  }
+  return searchedCars;
+}
+
 exports.getCarsById = (id) => {
   const carsById = cars.find((car) => car.id == id);
   if (!carsById) {

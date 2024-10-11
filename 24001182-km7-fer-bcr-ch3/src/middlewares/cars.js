@@ -106,3 +106,19 @@ exports.validatePutCars = (req, res, next) => {
   }
   next();
 };
+
+exports.validateGetQuery = (req, res, next) => {
+  const validateQuery = z
+    .object({
+      plate: z.string().optional().nullable(),
+      manufacture: z.string().optional().nullable(),
+    })
+    .optional()
+    .nullable();
+
+  const resultValidateQuery = validateQuery.safeParse(req.query);
+  if(!resultValidateQuery.success){
+    throw new BadRequestError(resultValidateQuery.error.errors);
+  }
+  next();
+};

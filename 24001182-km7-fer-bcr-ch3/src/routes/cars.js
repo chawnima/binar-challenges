@@ -3,6 +3,7 @@ const {
   validateGetParams,
   validatePostCars,
   validatePutCars,
+  validateGetQuery
 } = require("../middlewares/cars");
 const {
   getCars,
@@ -14,7 +15,7 @@ const {
 
 const router = express.Router();
 
-router.route("/").get(getCars).post(validatePostCars, addCars);
+router.route("/").get(validateGetQuery, getCars).post(validatePostCars, addCars);
 
 router
   .route("/:id")

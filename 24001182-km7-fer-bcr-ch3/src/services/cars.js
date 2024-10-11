@@ -1,8 +1,8 @@
 const carsRepository = require("../repositories/cars");
 const { imageUpload } = require("../utils/image-kit");
 
-exports.getCars = () => {
-  return carsRepository.getCars();
+exports.getCars = (req) => {
+  return Object.keys(req.query).length ? carsRepository.getCarsByQuery(req.query?.plate,req.query?.manufacture) : carsRepository.getCars();
 };
 
 exports.getCarsById = (id) => {
