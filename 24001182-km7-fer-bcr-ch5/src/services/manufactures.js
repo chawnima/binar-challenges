@@ -4,9 +4,7 @@ const { imageUpload } = require("../utils/image-kit");
 exports.getManufactures = async (req) => {
   return Object.keys(req.query).length
     ? await manufactureRepository.getManufacturesByQuery(
-        req.query.name,
-        req.query.characteristic,
-        req.query.style
+        req.query.name
       )
     : await manufactureRepository.getManufactures();
 };
