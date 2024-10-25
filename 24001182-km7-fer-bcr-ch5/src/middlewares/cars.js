@@ -76,7 +76,9 @@ exports.validatePutCars = (req, res, next) => {
   const model_id = Number(req.body.model_id);
   const type_id = Number(req.body.type_id);
   const available = req.body.available === "true";
-  const availableAt = new Date(req.body.availableAt);
+  const availableAt = req.body.availableAt
+    ? new Date(req.body.availableAt)
+    : null;
   const rentPerDay = Number(req.body.rentPerDay);
   const capacity = Number(req.body.capacity);
   const year = Number(req.body.year);
