@@ -1,5 +1,4 @@
-Ferdy chawnima = Cars & types
+Akses admin : 
 
-Bamaramzy Bamaramzy = Manufactures
-
-Varrelino RyukenZzZ = Models
+Email : admin@admin.com
+Password : admin
